@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Rua {
     private String nome;
@@ -35,5 +36,18 @@ public class Rua {
             }
         }
         return sb.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Rua)) return false;
+        Rua rua = (Rua) o;
+        return Objects.equals(nome.toLowerCase(), rua.nome.toLowerCase());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nome.toLowerCase());
     }
 }
